@@ -115,7 +115,18 @@ public class TopicControllerTest {
     @Test
     @Order(30)
     public void UpdateTopicWithPartitionChange(){
+        Topic topic = Topic.builder()
+                .metadata(ObjectMeta.builder().name("test.topic1").build())
+                .spec(Topic.TopicSpec.builder()
+                        .replicationFactor(3)
+                        .partitions(6)
+                        .build())
+                .build();
 
+        HttpClientResponseException actual = Assertions.assertThrows(HttpClientResponseException.class,
+                () -> client.toBlocking().retrieve(HttpRequest.POST("/api/namespaces/test/topics",topic), Topic.class));
+
+        Assertions.assertEquals("Message validation failed", actual.getMessage());
     }
 
     @Test
