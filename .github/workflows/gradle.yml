@@ -26,7 +26,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build & Test
-      run: ./gradlew test
+      run: ./gradlew test jacocoTestReport
+    - name: Codecov
+      uses: codecov/codecov-action@v1
+        with:
+          files: build/reports/jacoco/test/jacocoTestReport.xml
     - name: Push
       run: ./gradlew dockerBuild dockerPush  
     - uses: actions/upload-artifact@v2

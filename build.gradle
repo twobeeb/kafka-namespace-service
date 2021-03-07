@@ -1,6 +1,7 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "6.0.0"
     id "io.micronaut.application" version '1.0.5'
+    id 'jacoco'
 }
 
 version "0.1"
@@ -62,6 +63,10 @@ tasks.withType(JavaCompile) {
 tasks.run {
     environment( "MICRONAUT_ENVIRONMENTS","dev")
 }
-
-
-
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.enabled true
+        csv.enabled false
+    }
+}
