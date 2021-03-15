@@ -4,10 +4,6 @@ Namespaces on top of Kafka Broker, Kafka Connect and Schema Registry
 ## Key features
 - Desired state API
   - Mimics K8S principles
-  - Easy to use
-    - View : GET /api/namespaces/\<ns-name\>/topics/\<topic-name\>
-    - List : GET /api/namespaces/\<ns-name\>/topics
-    - Create : POST /api/namespaces/\<ns-name\>/topics
 - Self-service
   - [Topics](#topic-creation-request)
   - Schemas, Connects, KafkaUsers
