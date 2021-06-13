@@ -1,5 +1,7 @@
-# kafka-namespace-service
+# kafka-namespace-service (PROJECT MOVED)
 Namespaces on top of Kafka Broker, Kafka Connect and Schema Registry
+
+**Project moved to https://github.com/michelin/ns4kafka**
 
 ## Key features
 - Desired state API
